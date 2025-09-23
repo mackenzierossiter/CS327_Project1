@@ -99,13 +99,9 @@ int testXgcd()
     int result4 = xgcd (2, 4);
     printf("\n");
     printf("29^-1 mod 288  = %#X \n", result1 );
-    // printf("29^-1 mod 288  = %d \n", result1 );
     printf("30^-1 mod 288 = %#X \n", result2 );
-    // printf("30^-1 mod 288 = %d \n", result2 );
     printf("149^-1 mod 288  = %#X \n", result3 );
-    // printf("149^-1 mod 288  = %d \n", result3 );
     printf("2^-1 mod 4 = %#X \n", result4 );
-    // printf("2^-1 mod 4 = %d \n", result4 );
     printf("\n");
     return 0;
 }
@@ -150,20 +146,14 @@ void testKeygen ()
 
     keypair = keygen (17, 19, 29);
     printf("e = %#X \n", *keypair );
-    printf("e = %d \n", *keypair );
     printf("N = %#X \n", *( keypair + 1 ) );
-    printf("N = %d \n", *( keypair + 1 ) );
     printf("d = %#X \n", *( keypair + 2 ) );
-    printf("d = %d \n", *( keypair + 2 ) );
 
     printf("\n\n\n");
     int* keypair2 = keygen (17, 19, -1);
     printf("e = %#X \n", *keypair2 );
-    printf("e = %d \n", *keypair2 );
     printf("N = %#X \n", *( keypair2 + 1 ) );
-    printf("N = %d \n", *( keypair2 + 1 ) );
     printf("d = %#X \n", *( keypair2 + 2 ) );
-    printf("d = %d \n", *( keypair2 + 2 ) );
 }
 
 
@@ -260,20 +250,6 @@ void testRSA ()
     printf ("The decryption of (c2=%#X ) is %#X \n", c2, cleartext2 );
 }
 
-void testEncyptDecrypt() {
-    // keygen returns [E, N, D]
-    printf("\n\n");
-    int *keypair = keygen (17, 19, 29);
-    int message = 1234;
-    int encrypted = encrypt(message, *keypair, *(keypair+1));
-    int decrypted = decrypt(encrypted, *(keypair+2), *(keypair+1));
-
-    printf("message = %d\nencrypted = %d\ndecrypted = %d", message, encrypted, decrypted);
-
-
-
-}
-
 int main()
 {
     printf("********** Project 1 output begins **********\n");
@@ -282,7 +258,6 @@ int main()
     testXgcd ();
     testKeygen ();
     testRSA ();
-    testEncyptDecrypt();
 
     return 0;
 }
